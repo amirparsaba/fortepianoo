@@ -150,13 +150,19 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_UNIQUE_EMAIL = True
 
 AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of 'allauth'
+    # Needed to log by username in Django admin, regardless of 'allauth'
     'django.contrib.auth.backends.ModelBackend',
     # 'allauth' specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.stmp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'bqayyamyrparsa@gmail.com'
+EMAIL_HOST_PASSWORD = 'oswlykcayhpfqvdx'
+DEFAULT_FROM_EMAIL = 'bqayyamyrparsa@gmail.com'
 
 REST_FRAMEWORK = {
     # Use Django's standard 'django.contrib.auth' permissions,
